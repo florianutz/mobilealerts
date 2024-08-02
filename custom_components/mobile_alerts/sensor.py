@@ -218,11 +218,11 @@ class MobileAlertsSensor(CoordinatorEntity, SensorEntity):
             for measurement, value in measurement_data.items():
                 if measurement in ["idx", "ts", "c"]:
                     continue
-                state = value
+                state = float(value)
                 available = True
                 break
         elif self._type in measurement_data:
-            state = measurement_data[self._type]
+            state = float(measurement_data[self._type])
             available = True
 
         self._attr_native_value = state
@@ -354,11 +354,11 @@ class MobileAlertsWaterSensor(CoordinatorEntity, BinarySensorEntity):
             for measurement, value in measurement_data.items():
                 if measurement in ["idx", "ts", "c"]:
                     continue
-                state = value
+                state = float(value)
                 available = True
                 break
         elif self._type in measurement_data:
-            state = measurement_data[self._type]
+            state = float(measurement_data[self._type])
             available = True
 
         if state is not None:
